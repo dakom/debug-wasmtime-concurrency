@@ -94,5 +94,7 @@ fn should_not_block() {
         if time.elapsed() >= Duration::from_secs(5) {
             panic!("took way too long for tasks to complete!");
         }
+
+        println!("Took {}ms to complete", time.elapsed().as_millis());
     });
 }
