@@ -66,7 +66,12 @@ impl App {
         let mut store = wasmtime::Store::new(&self.engine, state);
         store.set_fuel(u64::MAX).unwrap();
 
-        store.epoch_deadline_async_yield_and_update(yield_period_ms);
+        store.epoch_deadline_callback(move |_| {
+            Ok(wasmtime::UpdateDeadline::YieldCustom(
+                yield_period_ms,
+                Box::pin(tokio::task::yield_now()),
+            ))
+        });
 
         crate::bindings::MyWorld::instantiate_async(&mut store, &component, &linker)
             .await

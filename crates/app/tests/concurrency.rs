@@ -2,7 +2,7 @@ use app::{App, ExecutionConfig};
 use std::{sync::LazyLock, time::Duration};
 
 // CHANGE TO 100 TO SEE THE PROBLEM
-const YIELD_PERIOD_MS: u64 = 10;
+const YIELD_PERIOD_MS: u64 = 100;
 
 // NO NEED TO CHANGE ANYTHING ELSE BELOW
 const COMPONENT_PATH: &str = "../../target/wasm32-wasip2/debug/example.wasm";
