@@ -1,0 +1,5 @@
+package example:example;
+
+world my-world {
+  export run: func(loop-time-ms: u64) -> string;
+}

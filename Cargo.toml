@@ -1,0 +1,19 @@
+[workspace]
+members = ["crates/*"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+
+
+[workspace.dependencies]
+wasmtime = { version = "36.0.1", features = [
+    "cache",
+    "component-model",
+    "runtime",
+    "std",
+] }
+wasmtime-wasi = "36.0.2"
+wit-bindgen = "0.46.0"
+tokio = { version = "1.47.1", features = ["full"] }

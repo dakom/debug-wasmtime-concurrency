@@ -1,0 +1,6 @@
+*.vim
+*.swo
+*.swp
+target
+.DS_Store
+.env
